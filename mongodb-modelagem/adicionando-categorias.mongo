@@ -1,0 +1,9 @@
+
+
+db.artigos.updateOne({
+    slug: "https://aeronave.netlify.app/"
+}, {
+    $set: {
+        categorias: ["Inovação"]
+    }
+})

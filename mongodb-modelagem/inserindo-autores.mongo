@@ -1,0 +1,11 @@
+
+
+
+
+
+db.autores.insertOne({
+    nome: "Victor Valencio",
+    descricao: "Desenvovedor Full Stack Java Jr.",
+    email: "valencioalcantara@outlook.com",
+    senha: "admin123"
+})

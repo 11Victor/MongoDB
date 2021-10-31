@@ -1,0 +1,18 @@
+
+
+
+db.artigos.insertOne({
+    autor: {
+        nome: "Victor Valencio",
+        descricao: "Desenvovedor Full Stack Java Jr.",
+        email: "valencioalcantara@outlook.com",
+        senha: "admin123"
+    },
+    slug: "https://aeronave.netlify.app/",
+    titulo: "AERONAVE MONOMOTORA",
+    conteudo: "A aeronave monomotora é um veículo que se destaca amplamente no mercado de aviação por ser um meio de transporte pessoal com um excelente custo-benefício, além do alto luxo e conforto adquiridos por meio dos diversos modelos de aeronave.",
+    dataCriado: ISODate('2021-10-30')
+})
+
+
+db.artigos.find({ slug: "https://aeronave.netlify.app/" })

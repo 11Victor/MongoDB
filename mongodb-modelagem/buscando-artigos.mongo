@@ -1,0 +1,12 @@
+
+
+
+db.autores.find({
+    "artigos.slug": "https://aeronave.netlify.app/"
+})
+
+
+db.autores.find({"artigos.slug": "https://aeronave.netlify.app/"}, {"artigos.titulo":1, "artigos.conteudo":1 } )
+
+
+db.autores.find({ "nome": "Victor Valencio" }, { "artigos.titulo":1, "artigos.conteudo":1  })

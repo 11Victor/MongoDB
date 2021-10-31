@@ -1,0 +1,56 @@
+db.infoAutores.insertOne({
+    nome: "Ricardo Alcantara",
+    email: "ricardo@email.com.br",
+    senha: "admin123",
+    descricao: "Policial e DJ"
+})
+
+var autorInfo = db.infoAutores.findOne({
+    email: "ricardo@email.com.br"
+})
+
+db.artigos.insertOne({
+    autor: {
+        nome: autorInfo.nome,
+        descricao: autorInfo.descricao,
+        id_info: autorInfo._id
+    },
+    slug: "postagem-politicas",
+    titulo: "Dicas",
+    conteudo: "Todas dicas do curso",
+    dataCriado: ISODate('2021-10-31'),
+    categorias: [
+        'Arquitetura',
+        'Programação'
+    ],
+    comentarios: []
+})
+
+
+
+
+var documento = db.artigos.findOneAndUpdate({
+    slug: "postagem-politicas",
+}, {
+    $push: {
+        comentarios: {
+            $each: [
+                {
+                    nome: "Vera",
+                    email: "vera@email.com.br",
+                    texto: "Muito legal",
+                    data: ISODate('2021-10-31')
+                }
+            ],
+            $position: 0
+        }
+    }
+}, { returnNewDocument: true })
+
+db.comentarios.insertOne({
+    id_artigo: documento._id,
+    nome: "Vera",
+    email: "vera@email.com.br",
+    texto: "Muito legal",
+    data: ISODate('2021-10-31')
+})

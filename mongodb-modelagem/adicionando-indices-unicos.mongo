@@ -1,0 +1,14 @@
+
+//Criando um Indice único
+db.artigos.createIndex({ slug: 1 }, { unique: true })
+
+//Pegar todos os Indexes
+db.artigos.getIndexes();
+
+//Apagar um Indice
+db.artigos.dropIndex('slug_1')
+
+//Apagar um artigo pelo parâmetro passado
+db.artigos.deleteOne({
+    slug: 'https://aeronave.netlify.app/'
+})

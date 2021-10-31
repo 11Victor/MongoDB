@@ -1,0 +1,15 @@
+db.infoAutores.update({
+    nome: "Victor Valencio"
+}, {
+    $set: {
+        nome: "Vic Valencio"
+    }
+})
+
+db.artigos.update({
+    "autor.nome": "Victor Valencio"
+}, {
+    $set: {
+        "autor.nome": "Vic Valencio"
+    }
+}, { multi:true })
